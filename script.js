@@ -29,14 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    const bannerContainer = document.getElementById('banner-container');
-        
+    const bannerContainer = document.getElementById('banner-container'); 
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
-
     const backToTopBtn = document.getElementById('back-to-top');
-
     const API_URL = 'https://fakestoreapi.com/products';
 
     const banners = [
@@ -125,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="text-sm text-gray-500 ml-2">(${product.rating.count})</span>
                     </div>
                     <p class="text-2xl font-bold text-blue-600 mt-auto">${product.price.toFixed(2)} BDT</p>
-                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Add to Cart</button>
+                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">Add to Cart</button>
                 </div>
             `;
             productList.appendChild(productCard);
@@ -319,24 +315,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    function setupIntersectionObserver() {
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-blue-600', 'font-bold');
-                        if (link.getAttribute('href').substring(1) === entry.target.id) {
-                            link.classList.add('text-blue-600', 'font-bold');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
+    // function setupIntersectionObserver() {
+    //     const sections = document.querySelectorAll('section');
+    //     const observer = new IntersectionObserver((entries) => {
+    //         entries.forEach(entry => {
+    //             if (entry.isIntersecting) {
+    //                 navLinks.forEach(link => {
+    //                     link.classList.remove('text-blue-600', 'font-bold');
+    //                     if (link.getAttribute('href').substring(1) === entry.target.id) {
+    //                         link.classList.add('text-blue-600', 'font-bold');
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     }, { threshold: 0.5 });
 
-        sections.forEach(section => observer.observe(section));
-    }
+    //     sections.forEach(section => observer.observe(section));
+    // }
     
+    navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('text-yellow-600', 'font-semibold', 'border-b-2', 'border-yellow-700'));
+      link.classList.add('text-yellow-600', 'font-semibold', 'border-b-2', 'border-yellow-700');
+    });
+  });
 
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();

@@ -10,20 +10,26 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">🛒SmartShop</a>
+
+    <header class="sticky top-0 z-50 bg-gradient-to-b from-white/80 to-white/50 backdrop-blur-md shadow-md transition-all duration-300">
+                <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-transparent bg-clip-text">🛒SmartShop </a>
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600">Home</a>
-                <a href="#products" class="nav-link text-gray-600 hover:text-blue-600">Products</a>
-                <a href="#reviews" class="nav-link text-gray-600 hover:text-blue-600">Reviews</a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600">Contact</a>
+            <a href="#home" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Home</a>
+            <a href="#products" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Products</a>
+            <a href="#reviews" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Reviews</a>
+            <a href="#contact" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Contact</a>
             </div>
             <div class="flex items-center space-x-4">
-                <div class="flex items-center space-x-2 p-2 rounded-lg bg-blue-100 text-blue-800">
+              <div class="flex items-center space-x-2 p-2 rounded-lg bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-300 text-amber-900">
+                <!-- <div class="flex items-center space-x-2 p-2 rounded-lg bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white shadow-md"> -->
                     <span class="font-semibold">Balance:</span>
                     <span id="user-balance" class="font-bold">1000 BDT</span>
-                    <button id="add-money-btn" title="Add 1000 BDT" class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">+</button>
+                   <button id="add-money-btn" title="Add 1000 BDT"
+                    class="w-6 h-6 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white rounded-full flex items-center justify-center hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all">
+                    +
+                    </button>
+
                 </div>
                 <button id="cart-toggle-btn" class="relative text-gray-600 hover:text-blue-600">
                     <i class="fas fa-shopping-cart text-2xl"></i>
@@ -42,6 +48,7 @@
         </div>
     </header>
 
+    <!-- Main section -->
     <main class="container mx-auto px-6 py-8">  
         <!-- Sliding Banner -->
         <section id="home" class="mb-12">
@@ -54,38 +61,48 @@
         </section>
 
         <!-- Product Section -->
-        <section id="products" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Our Products</h2>
+    <section id="products" class="mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-2 text-center">Our Products</h2>
             <p class="text-center text-gray-500 mb-8">Check out our exclusive collection of products.</p>
             
             <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
-                <input type="text" id="search-input" placeholder="Search by name..." class="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <div id="category-filters" class="flex flex-wrap justify-center gap-2">
-                    <button class="category-btn bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">All</button>
-                </div>
-            </div>
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search by name..." 
+                class="w-full md:w-1/3 p-2 border border-yellow-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 placeholder-yellow-700/70">
 
+            <div id="category-filters" class="flex flex-wrap justify-center gap-2">
+                <button class="category-btn bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300">
+                All
+                </button>
+                <button class="category-btn bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:from-yellow-400 hover:via-amber-500 hover:to-orange-500 transition-all duration-300">
+                Electronics
+                </button>
+                <button class="category-btn bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:from-yellow-400 hover:via-amber-500 hover:to-orange-500 transition-all duration-300">
+                Fashion
+                </button>
+            </div>
+            </div>
             <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                 <div id="loading-spinner" class="col-span-full flex justify-center items-center h-64">
-                    <i class="fas fa-spinner fa-spin fa-3x text-blue-500"></i>
-                </div>
+            <div id="loading-spinner" class="col-span-full flex justify-center items-center h-64">
+                <i class="fas fa-spinner fa-spin fa-3x text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500"></i>
             </div>
-        </section>
+            </div>
 
-        
-
+    </section>
         
     <!-- Reviews Section -->
    <section id="reviews" class="py-16 bg-gradient-to-b from-blue-50 via-indigo-50 to-purple-50">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-900">What Our Customers Say</h2>
+    <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-800">What Our Customers Say</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-400">
         <div class="flex items-center mb-4">
           <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=10" alt="Customer Avatar">
           <div>
-            <p class="font-semibold text-lg text-gray-900">Sarah K.</p>
+            <p class="font-semibold text-lg text-gray-800">Sarah K.</p>
             <div class="flex text-yellow-400 text-sm">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
@@ -100,11 +117,11 @@
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-400">
         <div class="flex items-center mb-4">
           <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=11" alt="Customer Avatar">
           <div>
-            <p class="font-semibold text-lg text-gray-900">James M.</p>
+            <p class="font-semibold text-lg text-gray-800">James M.</p>
             <div class="flex text-yellow-400 text-sm">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
@@ -119,11 +136,11 @@
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-400">
         <div class="flex items-center mb-4">
           <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=12" alt="Customer Avatar">
           <div>
-            <p class="font-semibold text-lg text-gray-900">Meheraj Islam</p>
+            <p class="font-semibold text-lg text-gray-800">Meheraj Islam</p>
             <div class="flex text-yellow-400 text-sm">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
@@ -141,41 +158,46 @@
     <!-- Contact Section -->
     <section id="contact" class="relative py-20 px-6 md:px-12 rounded-3xl overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 opacity-30 backdrop-blur-lg"></div>
-
             <div class="relative max-w-7xl mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
-                <h2 class="text-4xl font-extrabold text-center mb-12 text-blue-800">Get In Touch</h2>
-
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-800">Get In Touch</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Form -->
                 <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Send Us a Message</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Send Us a Message</h3>
                     <form id="contactForm" class="space-y-5 bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-md transition-all">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-2 text-gray-800">Name</label>
                         <input type="text" id="name" name="name" required placeholder="Your full name"
-                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition">
+                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition">
                     </div>
-
                     <div>
                         <label for="email" class="block text-sm font-medium mb-2 text-gray-800">Email</label>
                         <input type="email" id="email" name="email" required placeholder="you@example.com"
-                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition">
+                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition">
                     </div>
-
                     <div>
                         <label for="message" class="block text-sm font-medium mb-2 text-gray-800">Message</label>
                         <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."
-                                class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition"></textarea>
+                                class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"></textarea>
                     </div>
-
-                    <button type="submit" class="w-full bg-gradient-to-r from-blue-400 to-indigo-400 text-white font-bold py-3 rounded-lg shadow-md hover:from-blue-500 hover:to-indigo-500 transition transform hover:scale-[1.02]">
-                        Send Message
-                    </button>
-
+                     <div class="flex gap-x-4 sm:col-span-2">
+                    <div class="flex h-6 items-center">
+                    <div class="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
+                    <span class="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5"></span>
+                        <input id="agree-to-policies" type="checkbox" name="agree-to-policies" aria-label="Agree to policies" class="absolute inset-0 appearance-none focus:outline-hidden" />
+                    </div>
+                    </div>
+                    <label for="agree-to-policies" class="text-sm/6 text-gray-600">
+                    By selecting this, you agree to our
+                    <a href="#" class="font-semibold whitespace-nowrap text-indigo-600">privacy policy</a>.
+                    </label>
+                </div>
+                <button type="submit" 
+                    class="w-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 text-white font-bold py-3 rounded-lg shadow-md hover:from-yellow-500 hover:via-amber-600 hover:to-orange-500 transition transform hover:scale-[1.02]">
+                    Send Message
+                </button>
                     <div id="formFeedback" class="text-center mt-4 font-semibold transition-all"></div>
                     </form>
                 </div>
-
                 <div class="flex justify-center lg:justify-end">
                     <img src="https://i.ibb.co.com/ymYC7NW3/fas.jpg" 
                         alt="Contact Us" 
@@ -199,7 +221,7 @@
         <div class="p-4 border-t bg-gray-50">
              <div class="flex justify-between items-center mb-2">
                 <input type="text" id="coupon-input" placeholder="Coupon (e.g., SMART10)" class="w-2/3 p-2 border border-gray-300 rounded-l-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button id="apply-coupon-btn" class="w-1/3 bg-gray-800 text-white font-semibold py-2 px-3 rounded-r-lg text-sm hover:bg-gray-700">Apply</button>
+                <button id="apply-coupon-btn" class="w-1/3 bg-gray-800 text-white font-semibold py-2 px-3 rounded-r-lg text-sm hover:bg-green-700">Apply</button>
             </div>
             <div id="coupon-feedback" class="text-sm text-center mb-2 h-4"></div>
             <div class="space-y-2 text-sm">
@@ -211,51 +233,45 @@
                 <div class="flex justify-between font-bold text-lg"><span>Total:</span><span id="total-cost">60.00 BDT</span></div>
             </div>
             <div id="balance-warning" class="text-red-500 font-bold text-center mt-2 hidden">Total exceeds your balance!</div>
-            <button id="checkout-btn" class="w-full mt-4 bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition-colors disabled:bg-gray-400">Checkout</button>
+            <button id="checkout-btn" class="w-full mt-4 bg-yellow-400 text-white font-bold py-3 rounded-lg hover:bg-green-600 transition-colors disabled:bg-gray-400">Checkout</button>
         </div>
     </aside>
     <div id="cart-overlay" class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 hidden"></div>
 
     <!-- About Us Section -->
-  <section id="about" class="relative py-16 px-6 md:px-12 rounded-3xl overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 opacity-30 backdrop-blur-lg"></div>
-
-  <div class="relative max-w-6xl mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About SmartShop</h2>
-
-    <!-- Mission Section -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-      <div class="text-center md:text-left">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h3>
-        <p class="text-gray-700 leading-relaxed">
-          At <span class="font-semibold text-blue-600">SmartShop</span>, our mission is to make shopping smarter, faster, and more personalized.  
-          We combine technology with convenience to bring the best products and deals right to your fingertips.
-        </p>
-      </div>
-    </div>
-
-   <!-- Team Section -->
-    <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">Meet Our Team</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-        <!-- Team Member 1 -->
-        <div class="bg-gradient-to-br from-blue-50 via-blue-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
-            <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
-                 class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
-            <h4 class="text-lg font-semibold text-gray-800">Mohammad Shakwath</h4>
-            <p class="text-blue-600 font-medium">Developer</p>
+    <section id="about" class="relative py-16 px-6 md:px-12 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 opacity-30 backdrop-blur-lg"></div>
+    <div class="relative max-w-6xl mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About SmartShop</h2>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+        <div class="text-center md:text-left">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h3>
+            <p class="text-gray-700 leading-relaxed">
+            At <span class="font-semibold text-yellow-600">SmartShop</span>, our mission is to make shopping smarter, faster, and more personalized.  
+            We combine technology with convenience to bring the best products and deals right to your fingertips.
+            </p>
+        </div>
         </div>
 
-        <!-- Team Member 2 -->
-        <div class="bg-gradient-to-br from-blue-50 via-blue-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
-            <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
-                 class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
-            <h4 class="text-lg font-semibold text-gray-800">TamizUllah Kabbo</h4>
-            <p class="text-blue-600 font-medium">Developer</p>
-        </div>
+        <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">Meet Our Team</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-    </div>
-</section>
+            <div class="bg-gradient-to-br from-blue-50 via-yellow-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
+                <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
+                    class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
+                <h4 class="text-lg font-semibold text-gray-800">Mohammad Shakwath</h4>
+                <p class="text-yellow-800 font-medium">Developer</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 via-yellow-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
+                <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
+                    class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
+                <h4 class="text-lg font-semibold text-gray-800">TamizUllah Kabbo</h4>
+                <p class="text-yellow-800 font-medium">Developer</p>
+            </div>
+
+        </div>
+    </section>
 
 
 
@@ -266,7 +282,7 @@
         <h2 class="text-3xl font-bold mb-4 text-amber-400 animate-bounce">🎉 Special Offers</h2>
         <p class="text-gray-400 mb-6">Limited-time deals and discounts — don’t miss out!</p>
         <div class="flex flex-wrap justify-center gap-4">
-            <button class="bg-amber-500 text-gray-900 font-semibold px-4 py-2 rounded-lg hover:bg-amber-400 transition-transform transform hover:scale-105">Up to 50% Off</button>
+            <button class="bg-amber-500 text-gray-800 font-semibold px-4 py-2 rounded-lg hover:bg-amber-400 transition-transform transform hover:scale-105">Up to 50% Off</button>
             <button class="bg-teal-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-teal-500 transition-transform transform hover:scale-105">New Arrivals</button>
             <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition-transform transform hover:scale-105">Flash Sale</button>
         </div>
@@ -276,8 +292,8 @@
         <p class="text-gray-400 mb-4">Get updates on new arrivals and exclusive offers!</p>
         <form class="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-md mx-auto">
             <input type="email" placeholder="Enter your email"
-                class="w-full sm:w-auto flex-grow px-4 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400 text-gray-900" required>
-            <button type="submit" class="bg-amber-500 text-gray-900 px-6 py-2 rounded-md font-semibold hover:bg-amber-400 transition-colors">
+                class="w-full sm:w-auto flex-grow px-4 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-400 text-gray-800" required>
+            <button type="submit" class="bg-amber-500 text-gray-800 px-6 py-2 rounded-md font-semibold hover:bg-amber-400 transition-colors">
             Subscribe
             </button>
         </form>
