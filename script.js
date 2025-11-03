@@ -33,33 +33,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
     const backToTopBtn = document.getElementById('back-to-top');
+    const carousel = document.getElementById('carousel');
+    const slides = carousel.children;
+    const dots = document.querySelectorAll('.dot');
+
     const API_URL = 'https://fakestoreapi.com/products';
 
-    const banners = [
-        { img: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=2070&auto=format&fit=crop', text: 'Huge Sale on Electronics!' },
-        { img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop', text: 'New Arrivals: Watches' },
-        { img: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1780&auto=format&fit=crop', text: 'Stylish Sunglasses' },
-        { img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop', text: 'Get Your Running Shoes' }
+    const reviews = [
+        { name: 'Alice', rating: 5, comment: 'Amazing products and fast delivery! Will definitely shop here again.', date: '2024-05-20' },
+        { name: 'Bob', rating: 4, comment: 'Good quality items, but the packaging could be better. Overall, a positive experience.', date: '2024-05-18' },
+        { name: 'Charlie', rating: 5, comment: 'I love the watch I bought. It looks even better in person. Highly recommended!', date: '2024-05-15' },
+        { name: 'Diana', rating: 3, comment: 'The product was okay, but it took a long time to arrive.', date: '2024-05-12' },
+        { name: 'Eve', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately.', date: '2024-05-10' }
     ];
 
+        let index = 0;
+        const total = slides.length;
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-yellow-400', i === index);
+            dot.classList.toggle('bg-white/70', i !== index);
+            });
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            index = (index + 1) % total;
+            updateCarousel();
+        });
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            index = (index - 1 + total) % total;
+            updateCarousel();
+        });
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+            index = i;
+            updateCarousel();
+            });
+        });
+        setInterval(() => {
+            index = (index + 1) % total;
+            updateCarousel();
+        }, 4000);
+        updateCarousel();
 
     const init = () => {
         fetchProducts();
         updateBalanceDisplay();
         setupEventListeners();
-        createCarousel('banner', bannerContainer, banners.map(b => `<div class="w-full h-full flex-shrink-0 relative"><img src="${b.img}" class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h2 class="text-white text-4xl font-bold">${b.text}</h2></div></div>`));
-        createCarousel('review', reviewContainer, reviews.map(r => `
-            <div class="w-full md:w-1/3 flex-shrink-0 p-4">
-                <div class="bg-gray-100 p-6 rounded-lg h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
-                        <span class="ml-auto text-sm text-gray-500">${r.date}</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">"${r.comment}"</p>
-                    <p class="font-bold text-gray-800 text-right">- ${r.name}</p>
-                </div>
-            </div>
-        `));
+        // createCarousel('review', reviewContainer, reviews.map(r => `
+        //     <div class="w-full md:w-1/3 flex-shrink-0 p-4">
+        //         <div class="bg-gray-100 p-6 rounded-lg h-full">
+        //             <div class="flex items-center mb-4">
+        //                 <div class="text-yellow-400">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+        //                 <span class="ml-auto text-sm text-gray-500">${r.date}</span>
+        //             </div>
+        //             <p class="text-gray-600 mb-4">"${r.comment}"</p>
+        //             <p class="font-bold text-gray-800 text-right">- ${r.name}</p>
+        //         </div>
+        //     </div>
+        // `));
         setupIntersectionObserver();
     };
 
@@ -395,7 +428,6 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }
-    
 
     init();
     

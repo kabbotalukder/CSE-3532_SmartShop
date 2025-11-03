@@ -50,17 +50,36 @@
     <!-- Main section -->
     <main class="container mx-auto px-6 py-8">  
         <!-- Sliding Banner -->
-        <section id="home" class="mb-12">
-            <div class="relative rounded-lg overflow-hidden shadow-lg" style="height: 50vh;">
-                <div id="banner-container" class="w-full h-full flex transition-transform duration-500 ease-in-out">
-                </div>
-                <button id="prev-banner-btn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-800 p-2 rounded-full shadow-md"><i class="fas fa-chevron-left"></i></button>
-                <button id="next-banner-btn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-800 p-2 rounded-full shadow-md"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
+        <div class="relative w-full overflow-hidden rounded-2xl shadow-lg">
+        <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+            <img src='https://i.ibb.co.com/b5RDZ9L1/pic-2.jpg'
+                class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 1">
+            <img src="https://i.ibb.co.com/mV3d7T6R/pic4.jpg"
+                class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 2">
+                <img src="https://i.ibb.co.com/t5cH21W/pic-1.jpg"
+                class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 3">
+            <img src="https://i.ibb.co.com/CsNp1bsx/pic-3.jpg"
+                class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 4">
+            
+        </div>
+
+        <button id="prevBtn" 
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition"> <
+        </button>
+        <button id="nextBtn" 
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition"> >
+        </button>
+
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <span class="dot w-3 h-3 rounded-full bg-white/70 cursor-pointer"></span>
+            <span class="dot w-3 h-3 rounded-full bg-white/70 cursor-pointer"></span>
+            <span class="dot w-3 h-3 rounded-full bg-white/70 cursor-pointer"></span>
+            <span class="dot w-3 h-3 rounded-full bg-white/70 cursor-pointer"></span>
+        </div>
+        </div>
 
         <!-- Product Section -->
-    <section id="products" class="mb-12">
+    <section id="products" class="m-12">
             <h2 class="text-4xl font-bold text-gray-800 mb-2 text-center">Our Products</h2>
             <p class="text-center text-gray-500 mb-8">Check out our exclusive collection of products.</p>
             
